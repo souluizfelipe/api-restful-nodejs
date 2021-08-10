@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 function conect() { 
   
+  mongoose.set('useUnifiedTopology', true);
+
   mongoose.connect('mongodb://localhost:27017/api-restful-course?readPreference=primary&appname=MongoDB%20Compass&ssl=false', 
-    {useNewUrlParser: true}, 
-    {useUnifiedTopology: true}
-  );
+    {useNewUrlParser: true});
 
   const db = mongoose.connection;
 
