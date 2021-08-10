@@ -7,6 +7,8 @@ const app = express();
 
 db.conect();
 
+app.use(express.json());
+
 app.use('/api', routes);
 
 const port = process.env.PORT || 8080;

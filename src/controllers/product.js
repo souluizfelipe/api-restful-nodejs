@@ -1,6 +1,4 @@
 const ProductModel = require('../models/products');
-const { search } = require('../routes/routes');
-
 
 async function get(req, res) {
   const { id } = req.params;
@@ -13,6 +11,28 @@ async function get(req, res) {
 
 }
 
+async function post(req, res) {
+  const {
+    name,
+    brand,
+    price,
+  } = req.body;
+
+
+  const product = await new ProductModel({
+    name,
+    brand,
+    price,
+  });
+
+  product.save();
+
+  res.send({
+    'message': 'success',
+  });
+};
+
 module.exports = {
   get,
+  post,
 };
