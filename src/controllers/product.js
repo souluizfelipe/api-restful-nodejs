@@ -1,11 +1,11 @@
 const ProductModel = require('../models/products');
 
 
-function get(req, res) {
+async function get(req, res) {
 
-  res.send({
-    "ok": true,
-  });
+  const products = await ProductModel.find();
+
+  res.send(products);
 
 }
 
